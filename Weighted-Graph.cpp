@@ -10,7 +10,6 @@ class WeightedGraph{
 private:
     vector<vector<pair<int, int>>> adj;
     int V;
-
 public:
     WeightedGraph(int vertices) : V(vertices), adj(vertices) {};
 
@@ -18,5 +17,14 @@ public:
         adj[v].push_back(make_pair(w, weight));
     }
 
-    
+    void Dijkstra(int start){
+
+    }
+
 };
+
+int main(){
+    WeightedGraph g(6);
+    g.addEdge(0, 1, 4);
+    g.addEdge
+}
