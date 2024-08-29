@@ -58,20 +58,25 @@ public:
 
 int main() {
     Graph g(6);
+
+    // Adding edges to the graph
     g.addEdge(5, 3);
     g.addEdge(5, 2);
     g.addEdge(3, 4);
     g.addEdge(4, 1);
     g.addEdge(2, 1);
 
+    // Performing BFS starting from vertex 5
     cout << "BFS starting from vertex 5: ";
     g.BFS(5);
 
+    // Performing DFS starting from vertex 5
     cout << "DFS starting from vertex 5: ";
     g.DFS(5);
 
     return 0;
 }
+
 
 /*
     A graph is a collection of nodes (or vertices) and edges connecting some (possibly empty) pairs of nodes.

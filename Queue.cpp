@@ -70,22 +70,68 @@ public:
     }
 };
 
-int main(){
+int main() {
     Queue q;
-    cout << q.isEmpty() << endl;
+
+    // Check if the queue is initially empty
+    cout << "Is queue empty? " << (q.isEmpty() ? "Yes" : "No") << endl;
+
+    // Enqueue elements
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
     q.enqueue(4);
     q.enqueue(5);
-    cout << q.isEmpty() << endl;
     q.enqueue(6);
-    cout << q.size() << endl;
+
+    // Display the current state of the queue
+    cout << "Queue after enqueuing elements: ";
     q.display();
+
+    // Dequeue elements and display the queue
     q.dequeue();
     q.dequeue();
+    cout << "Queue after dequeuing two elements: ";
     q.display();
-    cout << q.size() << endl;
+
+    // Display the size of the queue
+    cout << "Current size of the queue: " << q.size() << endl;
+
+    // Clear the queue and check if it's empty
     q.clear();
-    q.isEmpty();
+    cout << "Queue after clearing: " << (q.isEmpty() ? "Empty" : "Not empty") << endl;
+
+    return 0;
 }
+
+/*
+    A queue is a data structure that follows the First-In-First-Out (FIFO) principle.
+    It means that the first element added to the queue will be the first one to be removed.
+
+    The primary operations of a queue are:
+
+    1. enqueue(int val):
+        - Adds an element to the end of the queue.
+        - Time Complexity: O(1)
+
+    2. dequeue():
+        - Removes and returns the front element from the queue.
+        - Throws an exception if the queue is empty.
+        - Time Complexity: O(1)
+
+    3. isEmpty():
+        - Returns true if the queue is empty, otherwise false.
+        - Time Complexity: O(1)
+
+    4. size():
+        - Returns the number of elements in the queue.
+        - Time Complexity: O(n)
+
+    5. clear():
+        - Removes all elements from the queue.
+        - Time Complexity: O(n)
+
+    6. display():
+        - Displays all the elements in the queue from front to rear.
+        - Time Complexity: O(n)
+*/
