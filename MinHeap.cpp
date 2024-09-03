@@ -15,7 +15,7 @@ public:
     }
 
     int parent(int i){
-        return (i-1)/2;
+        return (i-1) / 2;
     }
 
     int left(int i){
@@ -34,8 +34,7 @@ public:
             arr[size] = x;
             int k = size;
             size++;
-
-            while(k > 0 && arr[parent(k)] > arr[k]){
+            while(k != 0 && arr[parent(k)] > arr[k]){
                 swap(&arr[parent(k)], &arr[k]);
                 k = parent(k);
             }
