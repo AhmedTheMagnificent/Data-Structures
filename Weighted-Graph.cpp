@@ -26,5 +26,7 @@ public:
 int main(){
     WeightedGraph g(6);
     g.addEdge(0, 1, 4);
-    g.addEdge
+    g.addEdge(0, 2, 6);
+    g.addEdge(1, 2, 3);
+
 }
