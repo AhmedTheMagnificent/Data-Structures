@@ -35,6 +35,25 @@ private:
         cout << root->value << endl;
         inOrderTraversal(root->right);
     }
+
+    void preOrderTraversal(node *root){
+        if(root == nullptr){
+            return;
+        }
+        cout << root->value << endl;
+        preOrderTraversal(root->left);
+        preOrderTraversal(root->right);
+    }
+
+    void postOrderTraversal(node *root){
+        if(root == nullptr){
+            return;
+        }
+        postOrderTraversal(root->left);
+        postOrderTraversal(root->right);
+        cout << root->value << endl;
+    }
+
 public:
     BST(void){
         root = nullptr;
@@ -46,6 +65,14 @@ public:
 
     void inOrderTraversal(void){
         inOrderTraversal(root);
+    }
+
+    void preOrderTraversal(void){
+        preOrderTraversal(root);
+    }
+
+    void postOrderTraversal(void){
+        postOrderTraversal(root);
     }
     
 };
@@ -62,8 +89,12 @@ int main() {
     bst.insert(60);
     bst.insert(80);
 
-    cout << "In-order traversal: ";
+    cout << "In-order traversal: " << endl;
     bst.inOrderTraversal();
+    cout << "Pre-order traversal: " << endl;
+    bst.preOrderTraversal();
+    cout << "Post-order traversal: " << endl;
+    bst.postOrderTraversal();
 
     return 0;
 }
