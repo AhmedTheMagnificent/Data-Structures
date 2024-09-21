@@ -10,7 +10,7 @@ struct node{
     node(int val) : value(val), left(nullptr), right(nullptr), parent(nullptr) {}
 };
 
-class BST{
+class BinarySearchTree{
 private:
     node *root;
     node *insert(int val, node *root){
@@ -132,7 +132,7 @@ private:
     }
 
 public:
-    BST(void){
+    BinarySearchTree(void){
         root = nullptr;
     }
 
@@ -194,9 +194,9 @@ public:
 };
 
 int main() {
-    BST bst;
+    BinarySearchTree bst;
 
-    // Insert nodes into the BST
+    // Insert nodes into the BinarySearchTree
     bst.insert(50);
     bst.insert(30);
     bst.insert(70);
