@@ -16,7 +16,6 @@ public:
 
     void addEdge(int v, int w, int weight) {
         adj[v].push_back(make_pair(w, weight));
-        adj[w].push_back(make_pair(v, weight));  // For undirected graph
     }
 
     void BFS(int start) {
@@ -36,6 +35,7 @@ public:
                 }
             }
         }
+        cout << endl;
     }
 
     void DFS(int start){
@@ -55,6 +55,7 @@ public:
                 }
             }
         }
+        cout << endl;
     }
 
 };
