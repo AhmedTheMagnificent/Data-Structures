@@ -3,6 +3,7 @@
 #include <queue>
 #include <stack>
 #include <utility>
+#include <limits>
 
 using namespace std;
 
@@ -18,11 +19,36 @@ public:
         adj[v].push_back(make_pair(w, weight));
     }
 
-    void BFS(int start) {
+    vector<int> Dijkstra(int source){
+        const int INF = numeric_limits<int>::max();
+        vector<int> distances(V, INF);
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> queue;
+        queue.push({0, source});
+        distances[source] = 0;
+        while(!queue.empty()){
+            int currentDistance = queue.top().first;
+            int u = queue.top().second;
+            queue.pop();
+            if(currentDistance > distances[u]) continue;
+            
+            for(auto &neightbours : adj[u]){
+                int v = neightbours.first;
+                int w = neightbours.second;
+                
+                if(distances[v] > distances[u] + w){
+                    distances[v] = distances[u] + w;
+                    queue.push({distances[v], v});
+                }
+            }
+        }
+        return distances;
+    }
+
+    void BFS(int source) {
         queue<pair<int, int>> queue;
         vector<bool> visited (V, false);
-        queue.push({start, 0});
-        visited[start] = true;
+        queue.push({source, 0});
+        visited[source] = true;
         while(!queue.empty()){
             int v = queue.front().first;
             int weight = queue.front().second;
@@ -38,11 +64,11 @@ public:
         cout << endl;
     }
 
-    void DFS(int start){
+    void DFS(int source){
         stack<pair<int, int>> stack;
         vector<bool> visited (V, false);
-        stack.push({start, 0});
-        visited[start] = true;
+        stack.push({source, 0});
+        visited[source] = true;
         while(!stack.empty()){
             int v = stack.top().first;
             int weight = stack.top().second;
@@ -73,6 +99,14 @@ int main() {
 
     g.BFS(0);
     g.DFS(0);
-
+    vector<int> distances = g.Dijkstra(0);
+    for(int i = 0; i < distances.size(); i++){
+        if(distances[i] == numeric_limits<int>::max()){
+            cout << "Vertex " << i << " is unreachable." << endl;
+        }
+        else{
+            cout << "Vertex" << i << " : " << distances[i] << endl;
+        }
+    }
     return 0;
 }
